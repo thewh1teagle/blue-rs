@@ -6,6 +6,14 @@ The library expects phonemes at the inference boundary. Text phonemization is
 available as a helper module and examples, but `BlueTts::create` itself does
 not phonemize.
 
+## Install
+
+Add the crate directly from GitHub:
+
+```bash
+cargo add blue-rs --git https://github.com/thewh1teagle/blue-rs
+```
+
 ## Models
 
 Download the ONNX models from the blue-rs release:
