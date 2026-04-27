@@ -103,7 +103,7 @@ impl BlueTts {
         SAMPLE_RATE as u32
     }
 
-    pub fn synthesize(
+    pub fn create(
         &mut self,
         phonemes: &str,
         style: &VoiceStyle,

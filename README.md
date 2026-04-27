@@ -3,7 +3,7 @@
 Rust ONNX inference for BlueTTS.
 
 The library expects phonemes at the inference boundary. Text phonemization is
-available as a helper module and examples, but `BlueTts::synthesize` itself does
+available as a helper module and examples, but `BlueTts::create` itself does
 not phonemize.
 
 ## Models

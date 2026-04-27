@@ -94,7 +94,7 @@ impl EmbeddedDemo {
     fn create(&mut self, text: &str) -> Result<Vec<f32>> {
         let phonemes = self.phonemizer.phonemize(text)?;
         eprintln!("Phonemes: {phonemes}");
-        self.tts.synthesize(
+        self.tts.create(
             &phonemes,
             &self.style,
             SynthesisOptions {

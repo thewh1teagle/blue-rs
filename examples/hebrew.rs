@@ -21,7 +21,7 @@ fn main() -> Result<()> {
 
     let mut tts = BlueTts::from_dir("onnx_models")?;
     let style = VoiceStyle::from_json("voices/female1.json")?;
-    let audio = tts.synthesize(
+    let audio = tts.create(
         &phonemes,
         &style,
         SynthesisOptions {

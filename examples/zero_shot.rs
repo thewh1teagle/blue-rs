@@ -14,7 +14,7 @@ fn main() -> Result<()> {
         .phonemize("שימו לב נוסעים יקרים, הרכבת תיכנס לתחנת תל אביב מרכז בעוד מספר דקות.")?;
 
     let mut tts = BlueTts::from_dir("onnx_models")?;
-    let audio = tts.synthesize(
+    let audio = tts.create(
         &phonemes,
         &style,
         SynthesisOptions {

@@ -7,7 +7,7 @@ fn main() -> Result<()> {
 
     let phonemes = "sˈimu lˈev nosʔˈim jekaʁˈim, haʁakˈevet tiχanˈes letaχanˈat tˈel ʔavˈiv meʁkˈaz beʔˈod mispˈaʁ dakˈot. ɐtˈɛnʃən dˈɪɹ pˈæsɪndʒɚz, ðə tɹˈeɪn wˈɪl ˈɛntɚ tˈɛl ˈævaɪv sˈɛntɹəl stˈeɪʃən ˈɪn ˈeɪ fjˈuː mˈɪnɪts.";
 
-    let audio = tts.synthesize(
+    let audio = tts.create(
         phonemes,
         &style,
         SynthesisOptions {
