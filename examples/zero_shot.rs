@@ -6,14 +6,14 @@ use blue_rs::{
 };
 
 fn main() -> Result<()> {
-    let mut style_extractor = VoiceStyleExtractor::from_dir("../onnx_models-int8")?;
-    let style = style_extractor.from_wav("../ref.wav")?;
+    let mut style_extractor = VoiceStyleExtractor::from_dir("onnx_models")?;
+    let style = style_extractor.from_wav("ref.wav")?;
 
-    let mut phonemizer = Phonemizer::with_language(Some("../model.onnx"), Language::Hebrew)?;
+    let mut phonemizer = Phonemizer::with_language(Some("renikud.onnx"), Language::Hebrew)?;
     let phonemes = phonemizer
         .phonemize("שימו לב נוסעים יקרים, הרכבת תיכנס לתחנת תל אביב מרכז בעוד מספר דקות.")?;
 
-    let mut tts = BlueTts::from_dir("../onnx_models-int8")?;
+    let mut tts = BlueTts::from_dir("onnx_models")?;
     let audio = tts.synthesize(
         &phonemes,
         &style,
@@ -30,8 +30,8 @@ fn main() -> Result<()> {
         },
     )?;
 
-    std::fs::create_dir_all("../examples/out")?;
-    let out = "../examples/out/zero-shot-rs.wav";
+    std::fs::create_dir_all("examples/out")?;
+    let out = "examples/out/zero-shot-rs.wav";
     let spec = hound::WavSpec {
         channels: 1,
         sample_rate: tts.sample_rate(),

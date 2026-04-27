@@ -2,8 +2,8 @@ use anyhow::Result;
 use blue_rs::{BlueTts, ChunkingOptions, SynthesisOptions, VoiceStyle};
 
 fn main() -> Result<()> {
-    let mut tts = BlueTts::from_dir("../onnx_models-int8")?;
-    let style = VoiceStyle::from_json("../voices/female1.json")?;
+    let mut tts = BlueTts::from_dir("onnx_models")?;
+    let style = VoiceStyle::from_json("voices/female1.json")?;
 
     let phonemes = "sˈimu lˈev nosʔˈim jekaʁˈim, haʁakˈevet tiχanˈes letaχanˈat tˈel ʔavˈiv meʁkˈaz beʔˈod mispˈaʁ dakˈot. ɐtˈɛnʃən dˈɪɹ pˈæsɪndʒɚz, ðə tɹˈeɪn wˈɪl ˈɛntɚ tˈɛl ˈævaɪv sˈɛntɹəl stˈeɪʃən ˈɪn ˈeɪ fjˈuː mˈɪnɪts.";
 
@@ -23,8 +23,8 @@ fn main() -> Result<()> {
         },
     )?;
 
-    std::fs::create_dir_all("../examples/out")?;
-    let out = "../examples/out/basic-rs.wav";
+    std::fs::create_dir_all("examples/out")?;
+    let out = "examples/out/basic-rs.wav";
     let spec = hound::WavSpec {
         channels: 1,
         sample_rate: tts.sample_rate(),

@@ -5,12 +5,12 @@ use blue_rs::{
 };
 
 static RENIKUD_MODEL: &[u8] = include_bytes!("../renikud.onnx");
-static VOCAB: &[u8] = include_bytes!("../../src/vocab.json");
-static STYLE: &[u8] = include_bytes!("../../voices/female1.json");
-static TEXT_ENCODER: &[u8] = include_bytes!("../../onnx_models-int8/text_encoder.onnx");
-static VECTOR_ESTIMATOR: &[u8] = include_bytes!("../../onnx_models-int8/vector_estimator.onnx");
-static VOCODER: &[u8] = include_bytes!("../../onnx_models-int8/vocoder.onnx");
-static DURATION_PREDICTOR: &[u8] = include_bytes!("../../onnx_models-int8/duration_predictor.onnx");
+static VOCAB: &[u8] = include_bytes!("../onnx_models/vocab.json");
+static STYLE: &[u8] = include_bytes!("../voices/female1.json");
+static TEXT_ENCODER: &[u8] = include_bytes!("../onnx_models/text_encoder.onnx");
+static VECTOR_ESTIMATOR: &[u8] = include_bytes!("../onnx_models/vector_estimator.onnx");
+static VOCODER: &[u8] = include_bytes!("../onnx_models/vocoder.onnx");
+static DURATION_PREDICTOR: &[u8] = include_bytes!("../onnx_models/duration_predictor.onnx");
 
 fn main() -> Result<()> {
     let args = Args::parse()?;

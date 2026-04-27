@@ -8,17 +8,34 @@ not phonemize.
 
 ## Models
 
-From this directory, examples use the parent repo models:
+Download the ONNX models from the blue-rs release:
 
 ```bash
-../onnx_models-int8
-../voices/female1.json
+wget https://github.com/thewh1teagle/blue-rs/releases/download/models-v1/blue-rs-onnx-models-int8.tar.gz
+tar -xzf blue-rs-onnx-models-int8.tar.gz
 ```
+
+This creates `./onnx_models`, which is what the examples use.
+
+Download the default voices:
+
+```bash
+wget https://github.com/thewh1teagle/blue-rs/releases/download/models-v1/blue-rs-voices.tar.gz
+tar -xzf blue-rs-voices.tar.gz
+```
+
+This creates `./voices`.
 
 For the embedded example, `renikud.onnx` is included from this crate directory:
 
 ```bash
 wget https://huggingface.co/thewh1teagle/renikud/resolve/main/model.onnx -O renikud.onnx
+```
+
+For zero-shot style extraction, download a reference clip:
+
+```bash
+wget https://github.com/thewh1teagle/phonikud-chatterbox/releases/download/asset-files-v1/male1.wav -O ref.wav
 ```
 
 ## Run

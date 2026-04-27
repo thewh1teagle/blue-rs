@@ -8,7 +8,7 @@ fn main() -> Result<()> {
     let renikud_model = std::env::var("RENIKUD_MODEL")
         .ok()
         .or_else(|| {
-            ["renikud.onnx", "../renikud.onnx", "../model.onnx"]
+            ["renikud.onnx", "model.onnx"]
                 .into_iter()
                 .find(|path| std::path::Path::new(path).exists())
                 .map(str::to_string)
@@ -19,8 +19,8 @@ fn main() -> Result<()> {
     let phonemes = phonemizer.phonemize(&text)?;
     eprintln!("Phonemes: {phonemes}");
 
-    let mut tts = BlueTts::from_dir("../onnx_models-int8")?;
-    let style = VoiceStyle::from_json("../voices/female1.json")?;
+    let mut tts = BlueTts::from_dir("onnx_models")?;
+    let style = VoiceStyle::from_json("voices/female1.json")?;
     let audio = tts.synthesize(
         &phonemes,
         &style,
@@ -37,8 +37,8 @@ fn main() -> Result<()> {
         },
     )?;
 
-    std::fs::create_dir_all("../examples/out")?;
-    let out = "../examples/out/hebrew-rs.wav";
+    std::fs::create_dir_all("examples/out")?;
+    let out = "examples/out/hebrew-rs.wav";
     let spec = hound::WavSpec {
         channels: 1,
         sample_rate: tts.sample_rate(),

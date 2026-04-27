@@ -85,7 +85,7 @@ impl BlueTts {
             text_encoder: load_session(dir.join("text_encoder.onnx"))?,
             vector_estimator: load_session(dir.join("vector_estimator.onnx"))?,
             vocoder: load_session(dir.join("vocoder.onnx"))?,
-            tokenizer: Tokenizer::from_json("../src/vocab.json")?,
+            tokenizer: Tokenizer::from_json(dir.join("vocab.json"))?,
         })
     }
 
